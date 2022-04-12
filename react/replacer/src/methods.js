@@ -14,7 +14,8 @@ import {
   parseMDReactFullThing,
 } from './parse';
 
-
+// ---
+  
 // TODO add more messages here
 const MESSAGE_REACT_FULL_TEMPLATE = 'The FullTemplate has been parsed successfully';
 const MESSAGE_REACT_CONTENT = 'The Content has been parsed successfully';
@@ -39,25 +40,43 @@ function reactComponentReplace(content) {
   return reactComponent.replace(/{content}/g, content);
 }
 
-
+// ---
 
 function writeReactComponent(fileName, content, dir = 'generated', message) {
   const result = reactComponentReplace(content);
   writeHTML(fileName, result, dir, message);
 }
 
+
+
+function generate_write_print(content, name, extention, message){
+  
+  const fileName = generateTemplateName(name, extention);
+  writeReactComponent(fileName, content);
+  
+  printMessage(message, 'green2');
+
+}
+
+const MESSAGE_REACT_FULL_TEMPLATE = 'The FullTemplate has been parsed successfully';
+const MESSAGE_REACT_CONTENT = 'The Content has been parsed successfully';
+
 function generateReactContent(sourceFile) {
+  
   const { content, warnings } = parseMDReact(sourceFile);
   // console.log("parsedContent", { content, warnings, previewText });
 
   // ***
   checkWarnings(warnings);
 
-  const fileName = generateTemplateName('Content', 'js');
-  writeReactComponent(fileName, content);
+//   const message = 'The Content has been parsed successfully';
+  
+  generate_write_print(content, 'Content', 'js', MESSAGE_REACT_CONTENT);
+  
+  //const fileName = generateTemplateName('Content', 'js');
+  //writeReactComponent(fileName, content);
 
-  const message = 'The Content has been parsed successfully';
-  printMessage(message, 'green2');
+  //printMessage(message, 'green2');
 }
 
 function generateReactFullTemplate(sourceFile) {
@@ -68,12 +87,17 @@ function generateReactFullTemplate(sourceFile) {
 
   const fullContent = reactLayouts.reactFullTemplate(content);
 
-  const fileName = generateTemplateName('FullTemplate', 'js');
-  writeHTML(fileName, fullContent);
+  //const fileName = generateTemplateName('FullTemplate', 'js');
+  //writeHTML(fileName, fullContent);
 
-  const message = 'The FullTemplate has been parsed successfully';
-  printMessage(message, 'green2');
+  // const message = 'The FullTemplate has been parsed successfully';
+  // printMessage(message, 'green2');
+  
+  generate_write_print(fullContent, 'FullTemplate', 'js', MESSAGE_REACT_FULL_TEMPLATE);
+  
 }
+
+
 
 export {
 
