@@ -36,9 +36,33 @@ const Content = () => {
 export default Content;
 `;
 
+
+
 function reactComponentReplace(content) {
   return reactComponent.replace(/{content}/g, content);
 }
+
+
+
+// ---
+
+var Singleton = (function () {
+    var instance;
+
+    function createInstance() {
+        var object = new Object("I am the instance");
+        return object;
+    }
+
+    return {
+        getInstance: function () {
+            if (!instance) {
+                instance = createInstance();
+            }
+            return instance;
+        }
+    };
+})();
 
 // ---
 
@@ -58,8 +82,8 @@ function generate_write_print(content, name, extention, message){
 
 }
 
-const MESSAGE_REACT_FULL_TEMPLATE = 'The FullTemplate has been parsed successfully';
-const MESSAGE_REACT_CONTENT = 'The Content has been parsed successfully';
+
+
 
 function generateReactContent(sourceFile) {
   
@@ -69,14 +93,9 @@ function generateReactContent(sourceFile) {
   // ***
   checkWarnings(warnings);
 
-//   const message = 'The Content has been parsed successfully';
-  
+ 
   generate_write_print(content, 'Content', 'js', MESSAGE_REACT_CONTENT);
   
-  //const fileName = generateTemplateName('Content', 'js');
-  //writeReactComponent(fileName, content);
-
-  //printMessage(message, 'green2');
 }
 
 function generateReactFullTemplate(sourceFile) {
@@ -86,13 +105,7 @@ function generateReactFullTemplate(sourceFile) {
   checkWarnings(warnings);
 
   const fullContent = reactLayouts.reactFullTemplate(content);
-
-  //const fileName = generateTemplateName('FullTemplate', 'js');
-  //writeHTML(fileName, fullContent);
-
-  // const message = 'The FullTemplate has been parsed successfully';
-  // printMessage(message, 'green2');
-  
+ 
   generate_write_print(fullContent, 'FullTemplate', 'js', MESSAGE_REACT_FULL_TEMPLATE);
   
 }
