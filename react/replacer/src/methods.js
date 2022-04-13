@@ -6,7 +6,7 @@ import {
   checkWarnings,
 
   printMessage,
-  generateTemplateName,
+  generateTemplateName, // can be done differently
 } from 'markup-generator';
 
 import {
@@ -20,7 +20,7 @@ import {
 const MESSAGE_REACT_FULL_TEMPLATE = 'The FullTemplate has been parsed successfully';
 const MESSAGE_REACT_CONTENT = 'The Content has been parsed successfully';
 
-
+// move into react modules, maybe
 
 const reactComponent = `
 import React from "react";
@@ -42,17 +42,28 @@ function reactComponentReplace(content) {
   return reactComponent.replace(/{content}/g, content);
 }
 
-
+// ----
 
 // ---
-
+// i want to make it better
 var Singleton = (function () {
     var instance;
 
     function createInstance() {
         var object = new Object("I am the instance");
+        var object = {
+          
+        }
         return object;
     }
+  
+  function afterParsing(parserFunction, sourceFile){
+    const { content, warnings, previewText } = parseMDReact(sourceFile);
+    
+    checkWarnings(warnings);
+    
+    // add more later
+  }
 
     return {
         getInstance: function () {
@@ -92,9 +103,12 @@ function generateReactContent(sourceFile) {
 
   // ***
   checkWarnings(warnings);
-
- 
-  generate_write_print(content, 'Content', 'js', MESSAGE_REACT_CONTENT);
+  // ***
+  generate_write_print(
+    content, 
+    'Content', 'js', 
+    MESSAGE_REACT_CONTENT
+  );
   
 }
 
@@ -106,7 +120,11 @@ function generateReactFullTemplate(sourceFile) {
 
   const fullContent = reactLayouts.reactFullTemplate(content);
  
-  generate_write_print(fullContent, 'FullTemplate', 'js', MESSAGE_REACT_FULL_TEMPLATE);
+  generate_write_print(
+    fullContent, 
+    'FullTemplate', 'js', 
+    MESSAGE_REACT_FULL_TEMPLATE
+  );
   
 }
 
