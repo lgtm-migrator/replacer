@@ -47,6 +47,6 @@
   "dependencies": {
     "atherdon-callbacks": "^1.10.0",
     "atherdon-newsletter-react": "^1.0.12",
-    "markup-generator": "^0.6.0"
+    "markup-generator": "^1.0.0"
   }
 }
