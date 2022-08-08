@@ -11,3 +11,6 @@
 ~[Ship the data importer you always dreamed of][https://bit.ly/30AWyC4][https://raw.githubusercontent.com/atherdon/newsletters/master/archive/logos/thematic/2020/September/flatfile-logo-black-small-vertical.png]
 
 ~[Ship the data importer you always dreamed of][https://bit.ly/30AWyC4][https://raw.githubusercontent.com/atherdon/newsletters/master/archive/logos/thematic/2020/September/flatfile-logo-black-small-vertical.png]
+
+
+## [Linkedin page of LLazyEmail](https://www.linkedin.com/company/llazyemail/)
