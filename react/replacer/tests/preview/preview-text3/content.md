@@ -2,4 +2,7 @@
 
 
 
-~[The security-as-code solution for developers][https://bit.ly/3n9CgbE][https://gitlab.com/hackernoon/creative/-/raw/master/newsletters/logos/thematic/2020/October/Bridgecrew_stacked.jpg]
+~[The security-as-code solution for developers][https://bit.ly/3n9CgbE][https://gitlab.com/hackernoon/creative/-/raw/master/newsletters/logos/thematic/2020/October/Bridgecrew_stacked.jpg]2
+
+
+## [Linkedin page of LLazyEmail](https://www.linkedin.com/company/llazyemail/)
